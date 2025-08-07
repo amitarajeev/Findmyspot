@@ -1,0 +1,15 @@
+### Test API - Vehicle Ownership Insights
+GET http://127.0.0.1:5000/api/vehicle-growth
+
+### Test API - Vehicle Ownership Insights with year range
+GET http://127.0.0.1:5000/api/vehicle-growth?start=2018&end=2021
+
+### Test API - Population Growth Insights
+GET http://127.0.0.1:5000/api/population-growth
+
+### Test API - Population Growth, with region and year range
+GET http://127.0.0.1:5000/api/population-growth?start=2016&end=2021&region=Docklands
+
+### Test API - Population Growth, with region 
+GET http://127.0.0.1:5000/api/population-growth?region=Carlton
+

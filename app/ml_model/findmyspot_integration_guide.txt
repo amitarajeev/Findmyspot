@@ -1,0 +1,25 @@
+
+# FindMySpot
+
+1. **findmyspot_model.pth** - Trained LSTM model
+   - Contains model weights and configuration
+   - Requires PyTorch to load
+   - Usage example:
+     ```python
+     import torch
+     model = ParkingLSTM(input_size=6)
+     checkpoint = torch.load('findmyspot_model.pth')
+     model.load_state_dict(checkpoint['model_state_dict'])
+     ```
+
+2. **findmyspot_results.json** - Sample predictions and API formats
+   - Contains example API responses
+   - Shows expected data formats
+
+## API Integration Points
+- The model expects input features in this order:
+  [hour_sin, hour_cos, day_sin, day_cos, location_encoded, is_weekend]
+
+- All features should be normalized using the same scaler (included in preprocessor)
+
+

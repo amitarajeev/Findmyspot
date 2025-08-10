@@ -1,0 +1,26 @@
+### 2.1 - Real-time available parking in ALL zones (defaults to available only)
+GET http://127.0.0.1:5000/api/parking/realtime
+
+### 2.1 - Real-time available parking for zone 7539
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539
+
+### 2.1 - Real-time ALL (available and not) for zone 7539
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539&only_available=false
+
+### 2.3 - Historical hourly free spots for zone 7539 (Weekday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7539&day_type=Weekday
+
+### 2.3 - Historical hourly free spots for zone 7084 (Saturday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7084&day_type=Saturday
+
+### 2.2 - AI-predicted parking for zone 7539, hour 14, Weekday
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&hour=14&day_type=Weekday
+
+### 2.2 - AI-predicted parking for zone 7539, hour 18, Sunday
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&hour=18&day_type=Sunday
+
+### Find all ParkingZones for "Lonsdale St"
+GET http://127.0.0.1:5000/api/parking/zones?on_street=Lonsdale
+
+### Get rules/sign plates for ParkingZone 7539
+GET http://127.0.0.1:5000/api/parking/zone/7539/rules

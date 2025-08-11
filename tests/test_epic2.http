@@ -1,26 +1,114 @@
 ### 2.1 - Real-time available parking in ALL zones (defaults to available only)
 GET http://127.0.0.1:5000/api/parking/realtime
 
-### 2.1 - Real-time available parking for zone 7539
+### 2.1 - Real-time available parking for zone 7539 (default only available)
 GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539
 
 ### 2.1 - Real-time ALL (available and not) for zone 7539
 GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539&only_available=false
 
+### 2.1 - Real-time available parking for zone 7084
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7084
+
+### 2.1 - Real-time ALL (available and not) for zone 7084
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7084&only_available=false
+
+### 2.1 - Real-time available parking for zone 7538
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7538
+
+### 2.1 - Real-time available parking for zone 7090
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7090
+
+### 2.1 - Real-time available parking for zone 7220
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7220
+
+
 ### 2.3 - Historical hourly free spots for zone 7539 (Weekday)
 GET http://127.0.0.1:5000/api/parking/historical?zone_number=7539&day_type=Weekday
+
+### 2.3 - Historical hourly free spots for zone 7571 (Saturday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7571&day_type=Saturday
+
+### 2.3 - Historical hourly free spots for zone 7250 (Sunday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7250&day_type=Sunday
+
+### 2.3 - Historical hourly free spots for zone 7084 (Weekday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7084&day_type=Weekday
 
 ### 2.3 - Historical hourly free spots for zone 7084 (Saturday)
 GET http://127.0.0.1:5000/api/parking/historical?zone_number=7084&day_type=Saturday
 
-### 2.2 - AI-predicted parking for zone 7539, hour 14, Weekday
-GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&hour=14&day_type=Weekday
+### 2.3 - Historical hourly free spots for zone 7392 (Sunday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7392&day_type=Sunday
 
-### 2.2 - AI-predicted parking for zone 7539, hour 18, Sunday
-GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&hour=18&day_type=Sunday
+### 2.3 - Historical hourly free spots for zone 7538 (Weekday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7538&day_type=Weekday
 
-### Find all ParkingZones for "Lonsdale St"
+### 2.3 - Historical hourly free spots for zone 7605 (Saturday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7605&day_type=Saturday
+
+### 2.3 - Historical hourly free spots for zone 7250 (Sunday)
+GET http://127.0.0.1:5000/api/parking/historical?zone_number=7250&day_type=Sunday
+
+
+### 2.2 - AI-predicted parking (3-hour horizon) for zone 7539, hour 8, Weekday (with nearby suggestions)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&hour=8&day_type=Weekday&hours_ahead=3
+
+### 2.2 - AI-predicted parking (1-hour) for zone 7084, hour 12, Saturday (suggestions off)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7084&hour=12&day_type=Saturday&hours_ahead=1&suggest_nearby=false
+
+### 2.2 - AI-predicted parking (2-hour horizon) for zone 7084, hour 21, Sunday (5 nearby, 800m radius)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7084&hour=21&day_type=Sunday&hours_ahead=2&suggest_nearby=true&max_suggestions=5&radius_m=800
+
+### 2.2 - AI-predicted parking (3-hour horizon) for zone 7538, hour 7, default day type (Weekday), tight 300m radius
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7538&hour=7&hours_ahead=3&suggest_nearby=true&radius_m=300
+
+### 2.2 - AI-predicted parking (2-hour horizon) for zone 7162, hour 17, Weekday (suggestions off)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7162&hour=17&day_type=Weekday&hours_ahead=2&suggest_nearby=false
+
+### 2.2 - AI-predicted parking (3-hour horizon) for zone 7220, hour 13, Saturday (limit nearby to 2 within 500m)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7220&hour=13&day_type=Saturday&hours_ahead=3&suggest_nearby=true&max_suggestions=2&radius_m=500
+
+### 2.2 - AI-predicted parking (1-hour) for zone 7090, hour 23, Sunday (default suggestions)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7090&hour=23&day_type=Sunday&hours_ahead=1
+
+### 2.2 - AI-predicted parking (2-hour horizon) for zone 7539 with default hour (omitted) and Weekday (suggestions on)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&day_type=Weekday&hours_ahead=2&suggest_nearby=true
+
+### 2.2 - AI-predicted parking (3-hour horizon) for zone 7084, hour 9, default day type (omitted), suggestions off
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7084&hour=9&hours_ahead=3&suggest_nearby=false
+
+### 2.2 - AI-predicted parking (3-hour horizon) for zone 7538, hour 18, Sunday (max 6 nearby suggestions)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7538&hour=18&day_type=Sunday&hours_ahead=3&suggest_nearby=true&max_suggestions=6
+
+### 2.2 - AI-predicted parking (1-hour) for zone 7162, hour 7, Saturday (nearby suggestions, 1000m radius)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7162&hour=7&day_type=Saturday&hours_ahead=1&suggest_nearby=true&radius_m=1000
+
+### 2.2 - AI-predicted parking (2-hour horizon) for zone 7220, hour 16, Weekday (suggestions on; default radius)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7220&hour=16&day_type=Weekday&hours_ahead=2&suggest_nearby=true
+
+
+### 2.1 - Find all ParkingZones for "Lonsdale" (street matcher)
 GET http://127.0.0.1:5000/api/parking/zones?on_street=Lonsdale
 
-### Get rules/sign plates for ParkingZone 7539
+### 2.1 - Find all ParkingZones for "Collins"
+GET http://127.0.0.1:5000/api/parking/zones?on_street=Collins
+
+### 2.1 - Find all ParkingZones for "Bourke"
+GET http://127.0.0.1:5000/api/parking/zones?on_street=Bourke
+
+### 2.1 - Find all ParkingZones for "Queen"
+GET http://127.0.0.1:5000/api/parking/zones?on_street=Queen
+
+### 2.1 - Find all ParkingZones for "Flinders"
+GET http://127.0.0.1:5000/api/parking/zones?on_street=Flinders
+
+
+### 2.1 - Get rules/sign plates for ParkingZone 7539
 GET http://127.0.0.1:5000/api/parking/zone/7539/rules
+
+### 2.1 - Get rules/sign plates for ParkingZone 7084
+GET http://127.0.0.1:5000/api/parking/zone/7084/rules
+
+### 2.1 - Get rules/sign plates for ParkingZone 7538
+GET http://127.0.0.1:5000/api/parking/zone/7538/rules

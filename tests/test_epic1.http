@@ -1,15 +1,57 @@
-### Test API - Vehicle Ownership Insights
+# EPIC 1.0 — Data Insights
+# Base URL: http://127.0.0.1:5000/
+
+################################################################
+# AC 1.1 (Display a chart for vehicle ownership over past 10 yrs)
+# API returns labels & series that the UI will chart responsively
+GET http://127.0.0.1:5000/api/vehicle-growth?start=2015&end=2025
+Accept: application/json
+
+################################################################
+# AC 1.1 (Filter by year range)
+# User narrows to a subset; chart updates from this data
+GET http://127.0.0.1:5000/api/vehicle-growth?start=2018&end=2023
+Accept: application/json
+
+################################################################
+# AC 1.1 (Filter by region)
+# Region is included to allow regional drilldown in the UI
+GET http://127.0.0.1:5000/api/vehicle-growth?start=2015&end=2025&region=Greater%20Melbourne
+Accept: application/json
+
+################################################################
+# AC 1.1 (Source link under the chart)
+# Response includes "source" URL for the dataset the UI links to
+GET http://127.0.0.1:5000/api/vehicle-growth?start=2015&end=2025
+Accept: application/json
+
+################################################################
+# AC 1.2 (CBD population increase over a defined period – last 5 yrs)
+GET http://127.0.0.1:5000/api/population-growth?region=CBD&start=2019&end=2024
+Accept: application/json
+
+################################################################
+# AC 1.2 (Select a time range like 2015–2025; chart should update)
+GET http://127.0.0.1:5000/api/population-growth?region=CBD&start=2015&end=2025
+Accept: application/json
+
+################################################################
+# AC 1.2 (Data credibility with cited source)
+# Response should include a "source" field (e.g., ABS link) for the UI
+GET http://127.0.0.1:5000/api/population-growth?region=CBD&start=2015&end=2025
+Accept: application/json
+
+################################################################
+# AC 1.2 (Edge case: missing region -> server default region)
+GET http://127.0.0.1:5000/api/population-growth?start=2015&end=2025
+Accept: application/json
+
+################################################################
+# AC 1.2 (Edge case: invalid range start > end -> error/validation)
+GET http://127.0.0.1:5000/api/population-growth?region=CBD&start=2026&end=2020
+Accept: application/json
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
 GET http://127.0.0.1:5000/api/vehicle-growth
-
-### Test API - Vehicle Ownership Insights with year range
-GET http://127.0.0.1:5000/api/vehicle-growth?start=2018&end=2021
-
-### Test API - Population Growth Insights
-GET http://127.0.0.1:5000/api/population-growth
-
-### Test API - Population Growth, with region and year range
-GET http://127.0.0.1:5000/api/population-growth?start=2016&end=2021&region=Docklands
-
-### Test API - Population Growth, with region 
-GET http://127.0.0.1:5000/api/population-growth?region=Carlton
-
+Accept: application/json

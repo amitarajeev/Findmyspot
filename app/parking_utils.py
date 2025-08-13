@@ -6,8 +6,9 @@ from typing import Optional, Dict, Any, Tuple, List
 from datetime import datetime
 import math
 
-DATA_DIR = "data"
+
 BASE_DIR = os.path.dirname(__file__)
+DATA_DIR = os.path.join(BASE_DIR, "data")  # <— FIX
 ML_MODEL_DIR = os.path.join(BASE_DIR, "ml_model")
 PREDICTION_RESULTS_PATH = os.path.join(ML_MODEL_DIR, "findmyspot_results.json")
 

@@ -2,8 +2,7 @@ import pandas as pd
 import os
 
 # Define the path to the dataset
-VEHICLE_DATA_PATH = os.path.join('data', 'victoria_vehicle_registration_cleaned.xlsx')
-
+VEHICLE_DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'victoria_vehicle_registration_cleaned.xlsx')
 def get_vehicle_growth_data(start_year=2016, end_year=2018):
     # Load the Excel file, skip first 2 rows, and assign proper column names
     df = pd.read_excel(VEHICLE_DATA_PATH, skiprows=2, header=None)
@@ -31,7 +30,7 @@ def get_vehicle_growth_data(start_year=2016, end_year=2018):
     }
 
 
-POPULATION_DATA_PATH = os.path.join('data', 'melbourne_population_cleaned_new.xlsx')
+POPULATION_DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'melbourne_population_cleaned_new.xlsx')
 
 def get_population_growth_data(start_year=2015, end_year=2021, region=None):
     # Read with multi-header (first two rows)

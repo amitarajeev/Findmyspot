@@ -1,4 +1,5 @@
 #db_app.py
+#run "streamlit run db_app.py"
 import streamlit as st
 import psycopg2
 import pandas as pd

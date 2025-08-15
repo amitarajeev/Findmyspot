@@ -55,3 +55,51 @@ Accept: application/json
 # AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
 GET http://127.0.0.1:5000/api/vehicle-growth
 Accept: application/json
+
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/autocomplete?q=Flinders
+Accept: application/json
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET  http://127.0.0.1:5000/api/parking/geocode?q=123+Queen+Street+Melbourne
+
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/find?address=123+Queen+Street+Melbourne
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/find?lat=-37.814&lon=144.963
+
+
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/find?lat=-37.8136&lon=144.9631&radius=300&include_predictions=true
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7814
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/predict?zone_number=7539&hour=14&day_type=weekday
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/predict_many?zone_number=7539&hour=14&day_type=weekday&hours_ahead=3
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539
+
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539
+
+################################################################
+# AC 1.1 & 1.2 (Sanity: minimal request to exercise defaults)
+
+GET http://127.0.0.1:5000/api/parking/realtime?zone_number=7539&only_available=true
